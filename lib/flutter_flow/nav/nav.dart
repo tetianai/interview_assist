@@ -165,9 +165,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => StudyCardsWidget(),
         ),
         FFRoute(
-          name: 'Lessons',
+          name: 'Lesson',
           path: '/lesson',
-          builder: (context, params) => LessonsWidget(),
+          builder: (context, params) => LessonWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

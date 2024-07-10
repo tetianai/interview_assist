@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/components/edit_profile_widget.dart';
+import '/components/topic_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -18,12 +19,17 @@ class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Model for TopicNav component.
+  late TopicNavModel topicNavModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    topicNavModel = createModel(context, () => TopicNavModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
+    topicNavModel.dispose();
   }
 }

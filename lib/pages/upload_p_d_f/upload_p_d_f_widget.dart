@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/topic_nav_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -518,6 +519,15 @@ class _UploadPDFWidgetState extends State<UploadPDFWidget> {
                           ],
                         ),
                       ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 350.0, 0.0, 0.0),
+                    child: wrapWithModel(
+                      model: _model.topicNavModel,
+                      updateCallback: () => setState(() {}),
+                      child: TopicNavWidget(),
                     ),
                   ),
                 ],
