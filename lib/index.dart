@@ -14,4 +14,4 @@ export '/pages/subject_area/subject_area_widget.dart' show SubjectAreaWidget;
 export '/pages/topic/topic_widget.dart' show TopicWidget;
 export '/pages/interview/interview_widget.dart' show InterviewWidget;
 export '/pages/study_cards/study_cards_widget.dart' show StudyCardsWidget;
-export '/pages/lessons/lessons_widget.dart' show LessonsWidget;
+export '/pages/lesson/lesson_widget.dart' show LessonWidget;

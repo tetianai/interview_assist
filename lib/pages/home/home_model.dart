@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/topic_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -21,14 +22,20 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // Model for TopicNav component.
+  late TopicNavModel topicNavModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    topicNavModel = createModel(context, () => TopicNavModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
+
+    topicNavModel.dispose();
   }
 }

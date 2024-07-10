@@ -405,8 +405,7 @@ class _SubjectAreaWidgetState extends State<SubjectAreaWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context.pushNamed(
-                                                        'Select_Topic');
+                                                    context.pushNamed('Topic');
                                                   },
                                                   child: RichText(
                                                     textScaler:

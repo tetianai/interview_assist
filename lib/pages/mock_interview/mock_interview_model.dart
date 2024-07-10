@@ -1,6 +1,6 @@
+import '/components/topic_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -33,11 +33,17 @@ class MockInterviewModel extends FlutterFlowModel<MockInterviewWidget> {
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
+  // Model for TopicNav component.
+  late TopicNavModel topicNavModel;
+
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    topicNavModel = createModel(context, () => TopicNavModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
+    topicNavModel.dispose();
   }
 }

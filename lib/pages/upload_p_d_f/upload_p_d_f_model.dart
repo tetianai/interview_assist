@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/topic_nav_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -34,13 +35,20 @@ class UploadPDFModel extends FlutterFlowModel<UploadPDFWidget> {
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
+  // Model for TopicNav component.
+  late TopicNavModel topicNavModel;
+
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    topicNavModel = createModel(context, () => TopicNavModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     sessionNameFocusNode?.dispose();
     sessionNameTextController?.dispose();
+
+    topicNavModel.dispose();
   }
 }

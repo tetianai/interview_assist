@@ -1,6 +1,6 @@
+import '/components/topic_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -82,7 +82,7 @@ class _MockInterviewWidgetState extends State<MockInterviewWidget>
           backgroundColor: FlutterFlowTheme.of(context).secondaryText,
           automaticallyImplyLeading: false,
           title: Text(
-            'Page Title',
+            'Interview',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: Colors.white,
@@ -99,26 +99,6 @@ class _MockInterviewWidgetState extends State<MockInterviewWidget>
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  FlutterFlowIconButton(
-                    borderColor: FlutterFlowTheme.of(context).primary,
-                    borderRadius: 20.0,
-                    borderWidth: 1.0,
-                    buttonSize: 40.0,
-                    fillColor: FlutterFlowTheme.of(context).accent1,
-                    icon: Icon(
-                      Icons.chevron_left,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      size: 24.0,
-                    ),
-                    onPressed: () async {
-                      context.pushNamed('Home');
-                    },
-                  ),
-                ],
-              ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -195,158 +175,151 @@ class _MockInterviewWidgetState extends State<MockInterviewWidget>
                     animationsMap['rowOnActionTriggerAnimation']!,
                   ),
                 ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: _model.isRecording
-                          ? null
-                          : () async {
-                              await requestPermission(microphonePermission);
-                              if (await getPermissionStatus(
-                                  microphonePermission)) {
-                                await startAudioRecording(
-                                  context,
-                                  audioRecorder: _model.audioRecorder ??=
-                                      AudioRecorder(),
-                                );
-
-                                _model.isRecording = true;
-                                _model.showPlayer = false;
-                                setState(() {});
-                                if (animationsMap[
-                                        'rowOnActionTriggerAnimation'] !=
-                                    null) {
-                                  await animationsMap[
-                                          'rowOnActionTriggerAnimation']!
-                                      .controller
-                                      .repeat(reverse: true);
-                                }
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Permission denied!',
-                                      style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    duration: Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
-                                  ),
-                                );
-                              }
-                            },
-                      text: 'Start',
-                      options: FFButtonOptions(
-                        width: 100.0,
-                        height: 50.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                ),
-                        elevation: 3.0,
-                        borderRadius: BorderRadius.circular(50.0),
-                        disabledColor:
-                            FlutterFlowTheme.of(context).secondaryText,
-                        disabledTextColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
-                      ),
-                    ),
-                    FFButtonWidget(
-                      onPressed: !_model.isRecording
-                          ? null
-                          : () async {
-                              await stopAudioRecording(
-                                audioRecorder: _model.audioRecorder,
-                                audioName: 'recordedFileBytes.mp3',
-                                onRecordingComplete:
-                                    (audioFilePath, audioBytes) {
-                                  _model.recording = audioFilePath;
-                                  _model.recordedFileBytes = audioBytes;
-                                },
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  FFButtonWidget(
+                    onPressed: _model.isRecording
+                        ? null
+                        : () async {
+                            await requestPermission(microphonePermission);
+                            if (await getPermissionStatus(
+                                microphonePermission)) {
+                              await startAudioRecording(
+                                context,
+                                audioRecorder: _model.audioRecorder ??=
+                                    AudioRecorder(),
                               );
 
-                              final selectedFiles = await selectFiles(
-                                allowedExtensions: ['mp3'],
-                                multiFile: false,
-                              );
-                              if (selectedFiles != null) {
-                                setState(() => _model.isDataUploading = true);
-                                var selectedUploadedFiles = <FFUploadedFile>[];
-
-                                try {
-                                  selectedUploadedFiles = selectedFiles
-                                      .map((m) => FFUploadedFile(
-                                            name: m.storagePath.split('/').last,
-                                            bytes: m.bytes,
-                                          ))
-                                      .toList();
-                                } finally {
-                                  _model.isDataUploading = false;
-                                }
-                                if (selectedUploadedFiles.length ==
-                                    selectedFiles.length) {
-                                  setState(() {
-                                    _model.uploadedLocalFile =
-                                        selectedUploadedFiles.first;
-                                  });
-                                } else {
-                                  setState(() {});
-                                  return;
-                                }
-                              }
-
-                              _model.isRecording = false;
-                              _model.showPlayer = true;
+                              _model.isRecording = true;
+                              _model.showPlayer = false;
                               setState(() {});
                               if (animationsMap[
                                       'rowOnActionTriggerAnimation'] !=
                                   null) {
-                                animationsMap['rowOnActionTriggerAnimation']!
+                                await animationsMap[
+                                        'rowOnActionTriggerAnimation']!
                                     .controller
-                                    .stop();
+                                    .repeat(reverse: true);
                               }
-
-                              setState(() {});
-                            },
-                      text: 'Stop',
-                      options: FFButtonOptions(
-                        width: 100.0,
-                        height: 50.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFFFF5963),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Permission denied!',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
                                 ),
-                        elevation: 3.0,
-                        borderRadius: BorderRadius.circular(50.0),
-                        disabledColor:
-                            FlutterFlowTheme.of(context).secondaryText,
-                        disabledTextColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
-                      ),
+                              );
+                            }
+                          },
+                    text: 'Start',
+                    options: FFButtonOptions(
+                      width: 100.0,
+                      height: 50.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleMedium.override(
+                                fontFamily: 'Readex Pro',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 3.0,
+                      borderRadius: BorderRadius.circular(50.0),
+                      disabledColor: FlutterFlowTheme.of(context).secondaryText,
+                      disabledTextColor:
+                          FlutterFlowTheme.of(context).primaryBackground,
                     ),
-                  ],
-                ),
+                  ),
+                  FFButtonWidget(
+                    onPressed: !_model.isRecording
+                        ? null
+                        : () async {
+                            await stopAudioRecording(
+                              audioRecorder: _model.audioRecorder,
+                              audioName: 'recordedFileBytes.mp3',
+                              onRecordingComplete: (audioFilePath, audioBytes) {
+                                _model.recording = audioFilePath;
+                                _model.recordedFileBytes = audioBytes;
+                              },
+                            );
+
+                            final selectedFiles = await selectFiles(
+                              allowedExtensions: ['mp3'],
+                              multiFile: false,
+                            );
+                            if (selectedFiles != null) {
+                              setState(() => _model.isDataUploading = true);
+                              var selectedUploadedFiles = <FFUploadedFile>[];
+
+                              try {
+                                selectedUploadedFiles = selectedFiles
+                                    .map((m) => FFUploadedFile(
+                                          name: m.storagePath.split('/').last,
+                                          bytes: m.bytes,
+                                        ))
+                                    .toList();
+                              } finally {
+                                _model.isDataUploading = false;
+                              }
+                              if (selectedUploadedFiles.length ==
+                                  selectedFiles.length) {
+                                setState(() {
+                                  _model.uploadedLocalFile =
+                                      selectedUploadedFiles.first;
+                                });
+                              } else {
+                                setState(() {});
+                                return;
+                              }
+                            }
+
+                            _model.isRecording = false;
+                            _model.showPlayer = true;
+                            setState(() {});
+                            if (animationsMap['rowOnActionTriggerAnimation'] !=
+                                null) {
+                              animationsMap['rowOnActionTriggerAnimation']!
+                                  .controller
+                                  .stop();
+                            }
+
+                            setState(() {});
+                          },
+                    text: 'Stop',
+                    options: FFButtonOptions(
+                      width: 100.0,
+                      height: 50.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: Color(0xFFFF5963),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleMedium.override(
+                                fontFamily: 'Readex Pro',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 3.0,
+                      borderRadius: BorderRadius.circular(50.0),
+                      disabledColor: FlutterFlowTheme.of(context).secondaryText,
+                      disabledTextColor:
+                          FlutterFlowTheme.of(context).primaryBackground,
+                    ),
+                  ),
+                ],
               ),
               if (_model.showPlayer)
                 Padding(
@@ -377,31 +350,43 @@ class _MockInterviewWidgetState extends State<MockInterviewWidget>
                   ),
                 ),
               if (_model.showPlayer)
-                FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
-                  },
-                  text: 'Score',
-                  options: FFButtonOptions(
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Readex Pro',
-                          color: Colors.white,
-                          letterSpacing: 0.0,
-                        ),
-                    elevation: 3.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () {
+                      print('Button pressed ...');
+                    },
+                    text: 'Score',
+                    options: FFButtonOptions(
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).secondary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Readex Pro',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 3.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
-                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 380.0, 0.0, 0.0),
+                child: wrapWithModel(
+                  model: _model.topicNavModel,
+                  updateCallback: () => setState(() {}),
+                  child: TopicNavWidget(),
+                ),
+              ),
             ],
           ),
         ),
