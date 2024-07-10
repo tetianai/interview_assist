@@ -1,0 +1,36 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "chat_sessions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "linked_user",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "upserted_date",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "flowise_messages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "linked_session",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "linked_user",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_time",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ]
+}
