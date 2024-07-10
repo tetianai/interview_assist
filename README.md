@@ -1,2 +1,2 @@
 # interview_assist
-An AI assistant for systems design interview
+Master essential skills at lightning speed with our AI powered targeted study app!
