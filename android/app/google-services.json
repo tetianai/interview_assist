@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "918306806118",
+    "project_id": "pdflow-6054a",
+    "storage_bucket": "pdflow-6054a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918306806118:android:003d5f2e619f017396d0a7",
+        "android_client_info": {
+          "package_name": "com.mycompany.pdflow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwYOYNqpJD2LGrcQA5rmhAxyJvak5QgDc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

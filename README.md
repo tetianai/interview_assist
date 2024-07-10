@@ -1,2 +1,7 @@
-# interview_assist
-Master essential skills at lightning speed with our AI powered targeted study app!
+# interview-assistant
+
+A new Flutter project.
+
+## Getting Started
+
+FlutterFlow projects are built to run on the Flutter _stable_ release.
