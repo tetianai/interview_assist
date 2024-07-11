@@ -1,0 +1,755 @@
+{
+  "nodes": [
+    {
+      "width": 300,
+      "height": 391,
+      "id": "htmlToMarkdownTextSplitter_0",
+      "position": {
+        "x": 583.5281771312519,
+        "y": 251.50773878982687
+      },
+      "type": "customNode",
+      "data": {
+        "id": "htmlToMarkdownTextSplitter_0",
+        "label": "HtmlToMarkdown Text Splitter",
+        "version": 1,
+        "name": "htmlToMarkdownTextSplitter",
+        "type": "HtmlToMarkdownTextSplitter",
+        "baseClasses": [
+          "HtmlToMarkdownTextSplitter",
+          "MarkdownTextSplitter",
+          "RecursiveCharacterTextSplitter",
+          "TextSplitter",
+          "BaseDocumentTransformer",
+          "Runnable"
+        ],
+        "category": "Text Splitters",
+        "description": "Converts Html to Markdown and then split your content into documents based on the Markdown headers",
+        "inputParams": [
+          {
+            "label": "Chunk Size",
+            "name": "chunkSize",
+            "type": "number",
+            "default": 1000,
+            "optional": true,
+            "id": "htmlToMarkdownTextSplitter_0-input-chunkSize-number"
+          },
+          {
+            "label": "Chunk Overlap",
+            "name": "chunkOverlap",
+            "type": "number",
+            "optional": true,
+            "id": "htmlToMarkdownTextSplitter_0-input-chunkOverlap-number"
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "chunkSize": 1000,
+          "chunkOverlap": "30"
+        },
+        "outputAnchors": [
+          {
+            "id": "htmlToMarkdownTextSplitter_0-output-htmlToMarkdownTextSplitter-HtmlToMarkdownTextSplitter|MarkdownTextSplitter|RecursiveCharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable",
+            "name": "htmlToMarkdownTextSplitter",
+            "label": "HtmlToMarkdownTextSplitter",
+            "type": "HtmlToMarkdownTextSplitter | MarkdownTextSplitter | RecursiveCharacterTextSplitter | TextSplitter | BaseDocumentTransformer | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "selected": false,
+      "positionAbsolute": {
+        "x": 583.5281771312519,
+        "y": 251.50773878982687
+      },
+      "dragging": false
+    },
+    {
+      "width": 300,
+      "height": 334,
+      "id": "openAIEmbeddings_0",
+      "position": {
+        "x": 1019.6010051900794,
+        "y": 827.9343904089612
+      },
+      "type": "customNode",
+      "data": {
+        "id": "openAIEmbeddings_0",
+        "label": "OpenAI Embeddings",
+        "version": 1,
+        "name": "openAIEmbeddings",
+        "type": "OpenAIEmbeddings",
+        "baseClasses": [
+          "OpenAIEmbeddings",
+          "Embeddings"
+        ],
+        "category": "Embeddings",
+        "description": "OpenAI API to generate embeddings for a given text",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "openAIApi"
+            ],
+            "id": "openAIEmbeddings_0-input-credential-credential"
+          },
+          {
+            "label": "Strip New Lines",
+            "name": "stripNewLines",
+            "type": "boolean",
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAIEmbeddings_0-input-stripNewLines-boolean"
+          },
+          {
+            "label": "Batch Size",
+            "name": "batchSize",
+            "type": "number",
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAIEmbeddings_0-input-batchSize-number"
+          },
+          {
+            "label": "Timeout",
+            "name": "timeout",
+            "type": "number",
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAIEmbeddings_0-input-timeout-number"
+          },
+          {
+            "label": "BasePath",
+            "name": "basepath",
+            "type": "string",
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAIEmbeddings_0-input-basepath-string"
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "stripNewLines": "",
+          "batchSize": "",
+          "timeout": "",
+          "basepath": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "openAIEmbeddings_0-output-openAIEmbeddings-OpenAIEmbeddings|Embeddings",
+            "name": "openAIEmbeddings",
+            "label": "OpenAIEmbeddings",
+            "type": "OpenAIEmbeddings | Embeddings"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1019.6010051900794,
+        "y": 827.9343904089612
+      },
+      "dragging": false
+    },
+    {
+      "width": 300,
+      "height": 494,
+      "id": "conversationalRetrievalQAChain_0",
+      "position": {
+        "x": 2003.1056932259212,
+        "y": 690.00469444022
+      },
+      "type": "customNode",
+      "data": {
+        "id": "conversationalRetrievalQAChain_0",
+        "label": "Conversational Retrieval QA Chain",
+        "version": 1,
+        "name": "conversationalRetrievalQAChain",
+        "type": "ConversationalRetrievalQAChain",
+        "baseClasses": [
+          "ConversationalRetrievalQAChain",
+          "BaseChain",
+          "Runnable"
+        ],
+        "category": "Chains",
+        "description": "Document QA - built on RetrievalQAChain to provide a chat history component",
+        "inputParams": [
+          {
+            "label": "Return Source Documents",
+            "name": "returnSourceDocuments",
+            "type": "boolean",
+            "optional": true,
+            "id": "conversationalRetrievalQAChain_0-input-returnSourceDocuments-boolean"
+          },
+          {
+            "label": "System Message",
+            "name": "systemMessagePrompt",
+            "type": "string",
+            "rows": 4,
+            "additionalParams": true,
+            "optional": true,
+            "placeholder": "I want you to act as a document that I am having a conversation with. Your name is \"AI Assistant\". You will provide me with answers from the given info. If the answer is not included, say exactly \"Hmm, I am not sure.\" and stop after that. Refuse to answer any question not about the info. Never break character.",
+            "id": "conversationalRetrievalQAChain_0-input-systemMessagePrompt-string"
+          },
+          {
+            "label": "Chain Option",
+            "name": "chainOption",
+            "type": "options",
+            "options": [
+              {
+                "label": "MapReduceDocumentsChain",
+                "name": "map_reduce",
+                "description": "Suitable for QA tasks over larger documents and can run the preprocessing step in parallel, reducing the running time"
+              },
+              {
+                "label": "RefineDocumentsChain",
+                "name": "refine",
+                "description": "Suitable for QA tasks over a large number of documents."
+              },
+              {
+                "label": "StuffDocumentsChain",
+                "name": "stuff",
+                "description": "Suitable for QA tasks over a small number of documents."
+              }
+            ],
+            "additionalParams": true,
+            "optional": true,
+            "id": "conversationalRetrievalQAChain_0-input-chainOption-options"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Language Model",
+            "name": "model",
+            "type": "BaseLanguageModel",
+            "id": "conversationalRetrievalQAChain_0-input-model-BaseLanguageModel"
+          },
+          {
+            "label": "Vector Store Retriever",
+            "name": "vectorStoreRetriever",
+            "type": "BaseRetriever",
+            "id": "conversationalRetrievalQAChain_0-input-vectorStoreRetriever-BaseRetriever"
+          },
+          {
+            "label": "Memory",
+            "name": "memory",
+            "type": "BaseMemory",
+            "optional": true,
+            "description": "If left empty, a default BufferMemory will be used",
+            "id": "conversationalRetrievalQAChain_0-input-memory-BaseMemory"
+          }
+        ],
+        "inputs": {
+          "model": "{{openAI_0.data.instance}}",
+          "vectorStoreRetriever": "{{supabase_0.data.instance}}",
+          "memory": "",
+          "returnSourceDocuments": false,
+          "systemMessagePrompt": "I want you to act as a website that I am having a conversation with. Your name is \"AI Assistant\". You will provide me with answers from the given context. If the answer is not included, say exactly \"Hmm, I am not sure.\" and stop after that. Do not make up any information that is not in the context. Refuse to answer any question not about the info. Never break character. If I ask in a different language, always translate your response in my language.",
+          "chainOption": "map_reduce"
+        },
+        "outputAnchors": [
+          {
+            "id": "conversationalRetrievalQAChain_0-output-conversationalRetrievalQAChain-ConversationalRetrievalQAChain|BaseChain|Runnable",
+            "name": "conversationalRetrievalQAChain",
+            "label": "ConversationalRetrievalQAChain",
+            "type": "ConversationalRetrievalQAChain | BaseChain | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "selected": false,
+      "positionAbsolute": {
+        "x": 2003.1056932259212,
+        "y": 690.00469444022
+      },
+      "dragging": false
+    },
+    {
+      "width": 300,
+      "height": 432,
+      "id": "cheerioWebScraper_0",
+      "position": {
+        "x": 1023.980480301638,
+        "y": 257.24063585741624
+      },
+      "type": "customNode",
+      "data": {
+        "id": "cheerioWebScraper_0",
+        "label": "Cheerio Web Scraper",
+        "version": 1.1,
+        "name": "cheerioWebScraper",
+        "type": "Document",
+        "baseClasses": [
+          "Document"
+        ],
+        "category": "Document Loaders",
+        "description": "Load data from webpages",
+        "inputParams": [
+          {
+            "label": "URL",
+            "name": "url",
+            "type": "string",
+            "id": "cheerioWebScraper_0-input-url-string"
+          },
+          {
+            "label": "Get Relative Links Method",
+            "name": "relativeLinksMethod",
+            "type": "options",
+            "description": "Select a method to retrieve relative links",
+            "options": [
+              {
+                "label": "Web Crawl",
+                "name": "webCrawl",
+                "description": "Crawl relative links from HTML URL"
+              },
+              {
+                "label": "Scrape XML Sitemap",
+                "name": "scrapeXMLSitemap",
+                "description": "Scrape relative links from XML sitemap URL"
+              }
+            ],
+            "optional": true,
+            "additionalParams": true,
+            "id": "cheerioWebScraper_0-input-relativeLinksMethod-options"
+          },
+          {
+            "label": "Get Relative Links Limit",
+            "name": "limit",
+            "type": "number",
+            "optional": true,
+            "additionalParams": true,
+            "description": "Only used when \"Get Relative Links Method\" is selected. Set 0 to retrieve all relative links, default limit is 10.",
+            "warning": "Retrieving all links might take long time, and all links will be upserted again if the flow's state changed (eg: different URL, chunk size, etc)",
+            "id": "cheerioWebScraper_0-input-limit-number"
+          },
+          {
+            "label": "Selector (CSS)",
+            "name": "selector",
+            "type": "string",
+            "description": "Specify a CSS selector to select the content to be extracted",
+            "optional": true,
+            "additionalParams": true,
+            "id": "cheerioWebScraper_0-input-selector-string"
+          },
+          {
+            "label": "Metadata",
+            "name": "metadata",
+            "type": "json",
+            "optional": true,
+            "additionalParams": true,
+            "id": "cheerioWebScraper_0-input-metadata-json"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Text Splitter",
+            "name": "textSplitter",
+            "type": "TextSplitter",
+            "optional": true,
+            "id": "cheerioWebScraper_0-input-textSplitter-TextSplitter"
+          }
+        ],
+        "inputs": {
+          "url": "",
+          "textSplitter": "{{htmlToMarkdownTextSplitter_0.data.instance}}",
+          "relativeLinksMethod": "webCrawl",
+          "limit": "",
+          "selector": "",
+          "metadata": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "cheerioWebScraper_0-output-cheerioWebScraper-Document",
+            "name": "cheerioWebScraper",
+            "label": "Document",
+            "type": "Document"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1023.980480301638,
+        "y": 257.24063585741624
+      },
+      "dragging": false
+    },
+    {
+      "width": 300,
+      "height": 587,
+      "id": "openAI_0",
+      "position": {
+        "x": 1492.627227921463,
+        "y": 181.44663370500697
+      },
+      "type": "customNode",
+      "data": {
+        "id": "openAI_0",
+        "label": "OpenAI",
+        "version": 3,
+        "name": "openAI",
+        "type": "OpenAI",
+        "baseClasses": [
+          "OpenAI",
+          "BaseLLM",
+          "BaseLanguageModel",
+          "Runnable"
+        ],
+        "category": "LLMs",
+        "description": "Wrapper around OpenAI large language models",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "openAIApi"
+            ],
+            "id": "openAI_0-input-credential-credential"
+          },
+          {
+            "label": "Model Name",
+            "name": "modelName",
+            "type": "options",
+            "options": [
+              {
+                "label": "gpt-3.5-turbo-instruct",
+                "name": "gpt-3.5-turbo-instruct"
+              },
+              {
+                "label": "babbage-002",
+                "name": "babbage-002"
+              },
+              {
+                "label": "davinci-002",
+                "name": "davinci-002"
+              }
+            ],
+            "default": "gpt-3.5-turbo-instruct",
+            "optional": true,
+            "id": "openAI_0-input-modelName-options"
+          },
+          {
+            "label": "Temperature",
+            "name": "temperature",
+            "type": "number",
+            "step": 0.1,
+            "default": 0.7,
+            "optional": true,
+            "id": "openAI_0-input-temperature-number"
+          },
+          {
+            "label": "Max Tokens",
+            "name": "maxTokens",
+            "type": "number",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAI_0-input-maxTokens-number"
+          },
+          {
+            "label": "Top Probability",
+            "name": "topP",
+            "type": "number",
+            "step": 0.1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAI_0-input-topP-number"
+          },
+          {
+            "label": "Best Of",
+            "name": "bestOf",
+            "type": "number",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAI_0-input-bestOf-number"
+          },
+          {
+            "label": "Frequency Penalty",
+            "name": "frequencyPenalty",
+            "type": "number",
+            "step": 0.1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAI_0-input-frequencyPenalty-number"
+          },
+          {
+            "label": "Presence Penalty",
+            "name": "presencePenalty",
+            "type": "number",
+            "step": 0.1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAI_0-input-presencePenalty-number"
+          },
+          {
+            "label": "Batch Size",
+            "name": "batchSize",
+            "type": "number",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAI_0-input-batchSize-number"
+          },
+          {
+            "label": "Timeout",
+            "name": "timeout",
+            "type": "number",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAI_0-input-timeout-number"
+          },
+          {
+            "label": "BasePath",
+            "name": "basepath",
+            "type": "string",
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAI_0-input-basepath-string"
+          },
+          {
+            "label": "BaseOptions",
+            "name": "baseOptions",
+            "type": "json",
+            "optional": true,
+            "additionalParams": true,
+            "id": "openAI_0-input-baseOptions-json"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Cache",
+            "name": "cache",
+            "type": "BaseCache",
+            "optional": true,
+            "id": "openAI_0-input-cache-BaseCache"
+          }
+        ],
+        "inputs": {
+          "cache": "",
+          "modelName": "gpt-3.5-turbo-instruct",
+          "temperature": 0.7,
+          "maxTokens": "",
+          "topP": "",
+          "bestOf": "",
+          "frequencyPenalty": "",
+          "presencePenalty": "",
+          "batchSize": "",
+          "timeout": "",
+          "basepath": "",
+          "baseOptions": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "openAI_0-output-openAI-OpenAI|BaseLLM|BaseLanguageModel|Runnable",
+            "name": "openAI",
+            "label": "OpenAI",
+            "type": "OpenAI | BaseLLM | BaseLanguageModel | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1492.627227921463,
+        "y": 181.44663370500697
+      },
+      "dragging": false
+    },
+    {
+      "width": 300,
+      "height": 770,
+      "id": "supabase_0",
+      "position": {
+        "x": 1494.0737167735485,
+        "y": 800.2774826230551
+      },
+      "type": "customNode",
+      "data": {
+        "id": "supabase_0",
+        "label": "Supabase",
+        "version": 1,
+        "name": "supabase",
+        "type": "Supabase",
+        "baseClasses": [
+          "Supabase",
+          "VectorStoreRetriever",
+          "BaseRetriever"
+        ],
+        "category": "Vector Stores",
+        "description": "Upsert embedded data and perform similarity search upon query using Supabase via pgvector extension",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "supabaseApi"
+            ],
+            "id": "supabase_0-input-credential-credential"
+          },
+          {
+            "label": "Supabase Project URL",
+            "name": "supabaseProjUrl",
+            "type": "string",
+            "id": "supabase_0-input-supabaseProjUrl-string"
+          },
+          {
+            "label": "Table Name",
+            "name": "tableName",
+            "type": "string",
+            "id": "supabase_0-input-tableName-string"
+          },
+          {
+            "label": "Query Name",
+            "name": "queryName",
+            "type": "string",
+            "id": "supabase_0-input-queryName-string"
+          },
+          {
+            "label": "Supabase Metadata Filter",
+            "name": "supabaseMetadataFilter",
+            "type": "json",
+            "optional": true,
+            "additionalParams": true,
+            "id": "supabase_0-input-supabaseMetadataFilter-json"
+          },
+          {
+            "label": "Top K",
+            "name": "topK",
+            "description": "Number of top results to fetch. Default to 4",
+            "placeholder": "4",
+            "type": "number",
+            "additionalParams": true,
+            "optional": true,
+            "id": "supabase_0-input-topK-number"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Document",
+            "name": "document",
+            "type": "Document",
+            "list": true,
+            "optional": true,
+            "id": "supabase_0-input-document-Document"
+          },
+          {
+            "label": "Embeddings",
+            "name": "embeddings",
+            "type": "Embeddings",
+            "id": "supabase_0-input-embeddings-Embeddings"
+          }
+        ],
+        "inputs": {
+          "document": [
+            "{{cheerioWebScraper_0.data.instance}}"
+          ],
+          "embeddings": "{{openAIEmbeddings_0.data.instance}}",
+          "supabaseProjUrl": "https://ogqrbuxhnlgyhwpurwqt.supabase.co",
+          "tableName": "documents",
+          "queryName": "match_documentss",
+          "supabaseMetadataFilter": "",
+          "topK": ""
+        },
+        "outputAnchors": [
+          {
+            "name": "output",
+            "label": "Output",
+            "type": "options",
+            "options": [
+              {
+                "id": "supabase_0-output-retriever-Supabase|VectorStoreRetriever|BaseRetriever",
+                "name": "retriever",
+                "label": "Supabase Retriever",
+                "type": "Supabase | VectorStoreRetriever | BaseRetriever"
+              },
+              {
+                "id": "supabase_0-output-vectorStore-Supabase|VectorStore",
+                "name": "vectorStore",
+                "label": "Supabase Vector Store",
+                "type": "Supabase | VectorStore"
+              }
+            ],
+            "default": "retriever"
+          }
+        ],
+        "outputs": {
+          "output": "retriever"
+        },
+        "selected": false
+      },
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1494.0737167735485,
+        "y": 800.2774826230551
+      },
+      "dragging": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "htmlToMarkdownTextSplitter_0",
+      "sourceHandle": "htmlToMarkdownTextSplitter_0-output-htmlToMarkdownTextSplitter-HtmlToMarkdownTextSplitter|MarkdownTextSplitter|RecursiveCharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable",
+      "target": "cheerioWebScraper_0",
+      "targetHandle": "cheerioWebScraper_0-input-textSplitter-TextSplitter",
+      "type": "buttonedge",
+      "id": "htmlToMarkdownTextSplitter_0-htmlToMarkdownTextSplitter_0-output-htmlToMarkdownTextSplitter-HtmlToMarkdownTextSplitter|MarkdownTextSplitter|RecursiveCharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable-cheerioWebScraper_0-cheerioWebScraper_0-input-textSplitter-TextSplitter",
+      "data": {
+        "label": ""
+      }
+    },
+    {
+      "source": "openAI_0",
+      "sourceHandle": "openAI_0-output-openAI-OpenAI|BaseLLM|BaseLanguageModel|Runnable",
+      "target": "conversationalRetrievalQAChain_0",
+      "targetHandle": "conversationalRetrievalQAChain_0-input-model-BaseLanguageModel",
+      "type": "buttonedge",
+      "id": "openAI_0-openAI_0-output-openAI-OpenAI|BaseLLM|BaseLanguageModel|Runnable-conversationalRetrievalQAChain_0-conversationalRetrievalQAChain_0-input-model-BaseLanguageModel",
+      "data": {
+        "label": ""
+      }
+    },
+    {
+      "source": "cheerioWebScraper_0",
+      "sourceHandle": "cheerioWebScraper_0-output-cheerioWebScraper-Document",
+      "target": "supabase_0",
+      "targetHandle": "supabase_0-input-document-Document",
+      "type": "buttonedge",
+      "id": "cheerioWebScraper_0-cheerioWebScraper_0-output-cheerioWebScraper-Document-supabase_0-supabase_0-input-document-Document",
+      "data": {
+        "label": ""
+      }
+    },
+    {
+      "source": "openAIEmbeddings_0",
+      "sourceHandle": "openAIEmbeddings_0-output-openAIEmbeddings-OpenAIEmbeddings|Embeddings",
+      "target": "supabase_0",
+      "targetHandle": "supabase_0-input-embeddings-Embeddings",
+      "type": "buttonedge",
+      "id": "openAIEmbeddings_0-openAIEmbeddings_0-output-openAIEmbeddings-OpenAIEmbeddings|Embeddings-supabase_0-supabase_0-input-embeddings-Embeddings",
+      "data": {
+        "label": ""
+      }
+    },
+    {
+      "source": "supabase_0",
+      "sourceHandle": "supabase_0-output-retriever-Supabase|VectorStoreRetriever|BaseRetriever",
+      "target": "conversationalRetrievalQAChain_0",
+      "targetHandle": "conversationalRetrievalQAChain_0-input-vectorStoreRetriever-BaseRetriever",
+      "type": "buttonedge",
+      "id": "supabase_0-supabase_0-output-retriever-Supabase|VectorStoreRetriever|BaseRetriever-conversationalRetrievalQAChain_0-conversationalRetrievalQAChain_0-input-vectorStoreRetriever-BaseRetriever",
+      "data": {
+        "label": ""
+      }
+    }
+  ]
+}
